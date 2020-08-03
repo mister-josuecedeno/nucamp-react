@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Navbar, NavbarBrand } from 'reactstrap';
 import './App.css';
+import Directory from './components/DirectoryComponent';
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
           <NavbarBrand href='/'>NuCamp</NavbarBrand>
         </div>
       </Navbar>
+      <Directory />
     </div>
   );
 }
