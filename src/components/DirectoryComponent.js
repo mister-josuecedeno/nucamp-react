@@ -8,7 +8,7 @@ import {
   CardTitle,
 } from 'reactstrap';
 
-import { CampsiteInfo } from './CampsiteInfoComponent';
+import CampsiteInfo from './CampsiteInfoComponent';
 
 class Directory extends Component {
   constructor(props) {

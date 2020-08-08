@@ -2,6 +2,12 @@ import React, { Component } from 'react';
 import { Card, CardImg, CardText, CardBody, CardTitle } from 'reactstrap';
 
 export class CampsiteInfo extends Component {
+  //Error received 'no-useless-constructor
+  // constructor(props) {
+  //   super(props);
+  // }
+
+  // deconstructed 'campsite' -> image, name, description
   renderCampsite({ image, name, description }) {
     return (
       <div className='col-md-5 m-1'>
@@ -43,8 +49,7 @@ export class CampsiteInfo extends Component {
     return <div />;
   }
 
-  // How would I destructure props?
-  render(props) {
+  render() {
     if (this.props.campsite) {
       return (
         <>
