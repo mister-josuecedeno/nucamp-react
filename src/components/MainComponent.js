@@ -12,13 +12,10 @@ class Main extends Component {
     super(props);
     this.state = {
       campsites: CAMPSITES,
-      selectedCampsite: null,
     };
   }
 
-  onCampsiteSelect(campsiteId) {
-    this.setState({ selectedCampsite: campsiteId });
-  }
+  //
 
   render() {
     const HomePage = () => {
