@@ -7,7 +7,6 @@ export class CampsiteInfo extends Component {
   //   super(props);
   // }
 
-  // deconstructed 'campsite' -> image, name, description
   renderCampsite({ image, name, description }) {
     return (
       <div className='col-md-5 m-1'>
@@ -22,7 +21,7 @@ export class CampsiteInfo extends Component {
     );
   }
 
-  renderComments({ comments }) {
+  renderComments(comments) {
     if (comments) {
       return (
         <div className='col-md-5 m-1'>
@@ -52,12 +51,12 @@ export class CampsiteInfo extends Component {
   render() {
     if (this.props.campsite) {
       return (
-        <>
+        <div claccName='container'>
           <div className='row'>
             {this.renderCampsite(this.props.campsite)}
-            {this.renderComments(this.props.campsite)}
+            {this.renderComments(this.props.campsite.comments)}
           </div>
-        </>
+        </div>
       );
     }
 
