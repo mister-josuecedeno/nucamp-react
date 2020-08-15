@@ -7,7 +7,7 @@ import Footer from './FooterComponent';
 import Home from './HomeComponent';
 import CampsiteInfo from './CampsiteInfoComponent';
 import Contact from './ContactComponent';
-import AboutUs from './AboutComponent';
+import About from './AboutComponent';
 
 import { CAMPSITES } from '../shared/campsites';
 import { COMMENTS } from '../shared/comments';
@@ -71,7 +71,7 @@ class Main extends Component {
           <Route
             exact
             path='/aboutus'
-            render={() => <AboutUs partners={this.state.partners} />}
+            render={() => <About partners={this.state.partners} />}
           />
           <Route exact path='/contactus' component={Contact} />
           <Redirect to='/home' />
