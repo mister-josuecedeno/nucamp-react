@@ -4,8 +4,6 @@ import { Comments } from './comments';
 import { Partners } from './partners';
 import { Promotions } from './promotions';
 
-// import { Reducer, initialState } from './reducer';
-
 export const ConfigureStore = () => {
   const store = createStore(
     combineReducers({
