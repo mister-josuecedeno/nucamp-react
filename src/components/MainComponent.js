@@ -11,6 +11,8 @@ import CampsiteInfo from './CampsiteInfoComponent';
 import Contact from './ContactComponent';
 import About from './AboutComponent';
 
+// TEST COMMENT
+
 const mapStateToProps = (state) => {
   return {
     campsites: state.campsites,
