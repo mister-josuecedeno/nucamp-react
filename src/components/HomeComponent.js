@@ -17,6 +17,8 @@ function RenderCard({ item, isLoading, errMess }) {
     <FadeTransform
       in
       transformProps={{
+        // enterTransform: 'translateX(10px)',
+        // exitTransform: 'translateX(-10px)',
         exitTransform: 'scale(0.5) translateY(50%)',
       }}
     >
