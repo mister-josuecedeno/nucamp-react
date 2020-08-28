@@ -8,12 +8,19 @@ import {
   Media,
 } from 'reactstrap';
 import { Link } from 'react-router-dom';
+import { baseUrl } from '../shared/baseUrl';
+import { Loading } from './LoadingComponent';
 
 function RenderPartner({ partner }) {
   if (partner) {
     return (
       <React.Fragment>
-        <Media width='150' object src={partner.image} alt={partner.name} />
+        <Media
+          width='150'
+          object
+          src={baseUrl + partner.image}
+          alt={partner.name}
+        />
         <Media body className='ml-5 mb-4'>
           <Media heading>{partner.name}</Media>
           {partner.description}
@@ -25,15 +32,42 @@ function RenderPartner({ partner }) {
   return <div />;
 }
 
-function About(props) {
-  const partners = props.partners.map((partner) => {
-    // return <h5>{partner.name}</h5>;
+function PartnerList(props) {
+  const partners = props.partners.partners.map((partner) => {
     return (
       <Media tag='li' key={partner.id}>
         <RenderPartner partner={partner} />
       </Media>
     );
   });
+
+  if (props.partners.isLoading) {
+    return <Loading />;
+  }
+
+  if (props.partners.errMess) {
+    return (
+      <div className='col'>
+        <h4>{props.partners.errMess}</h4>
+      </div>
+    );
+  }
+
+  return (
+    <div className='col mt-4'>
+      <Media list>{partners}</Media>
+    </div>
+  );
+}
+
+function About(props) {
+  // const partners = props.partners.partners.map((partner) => {
+  //   return (
+  //     <Media tag='li' key={partner.id}>
+  //       <RenderPartner partner={partner} />
+  //     </Media>
+  //   );
+  // });
 
   return (
     <div className='container'>
@@ -104,9 +138,8 @@ function About(props) {
         <div className='col-12'>
           <h3>Community Partners</h3>
         </div>
-        <div className='col mt-4'>
-          <Media list>{partners}</Media>
-        </div>
+
+        <PartnerList partners={props.partners} />
       </div>
     </div>
   );
