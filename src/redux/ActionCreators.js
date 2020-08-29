@@ -120,6 +120,40 @@ export const postComment = (campsiteId, rating, author, text) => (dispatch) => {
     });
 };
 
+export const postFeedback = (feedback) => () => {
+  return fetch(baseUrl + 'feedback', {
+    method: 'POST',
+    body: JSON.stringify(feedback),
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then(
+      (response) => {
+        if (response.ok) {
+          return response;
+        } else {
+          const error = new Error(
+            `Error ${response.status}: ${response.statusText}`
+          );
+          error.response = response;
+          throw error;
+        }
+      },
+      (error) => {
+        throw error;
+      }
+    )
+    .then((response) => response.json())
+    .then((response) => {
+      alert('Thank you for your feedback\n' + JSON.stringify(response));
+    })
+    .catch((error) => {
+      console.log('post comment', error.message);
+      alert('Your comment could not be posted\nError: ' + error.message);
+    });
+};
+
 export const fetchPromotions = () => (dispatch) => {
   dispatch(promotionsLoading());
 
